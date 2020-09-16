@@ -1,0 +1,5 @@
+#+TITLE: Sharing.io
+
+#+begin_quote
+  Collaborate with others through pairing and sharing.
+#+end_quote
