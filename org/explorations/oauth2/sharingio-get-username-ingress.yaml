@@ -1,0 +1,17 @@
+
+
+# Create an Ingress mapping
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: sharingio-get-username
+spec:
+  rules:
+  - host: sharing.me.sharing.io
+    http:
+      paths:
+      - backend:
+          serviceName: sharingio-get-username
+          servicePort: 8085
+        path: /
