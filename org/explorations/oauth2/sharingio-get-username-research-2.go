@@ -15,6 +15,10 @@ import (
   "github.com/justinas/alice"
 )
 
+var (
+  cookieName = "_oauth2_proxy"
+)
+
 // Logging ...
 // log the HTTP requests
 func Logging(next http.Handler) http.Handler {
@@ -24,6 +28,8 @@ func Logging(next http.Handler) http.Handler {
     if err != nil {
       log.Panicln(err)
     }
+    c, err := r.Cookie(cookieName)
+    log.Printf("cookie: %v; err: %v\n", c, err)
     log.Printf("%v", string(jsonEncodedRequest))
     next.ServeHTTP(w, r)
   })
@@ -44,7 +50,7 @@ func main() {
   authSecret := os.Getenv("APP_OAUTH2_SECRET")
   log.Printf("authSecret: %v\n", authSecret)
   cookieOptions := oauth2options.Cookie{
-    Name: "_oauth2_proxy",
+    Name: cookieName,
     Secret: authSecret,
   }
   sessionOptions := oauth2options.SessionOptions{
