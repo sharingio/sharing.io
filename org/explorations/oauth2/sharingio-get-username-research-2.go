@@ -11,6 +11,7 @@ import (
 
   "github.com/oauth2-proxy/oauth2-proxy/pkg/middleware"
   "github.com/oauth2-proxy/oauth2-proxy/pkg/sessions"
+  "github.com/oauth2-proxy/oauth2-proxy/providers"
   oauth2options "github.com/oauth2-proxy/oauth2-proxy/pkg/apis/options"
   "github.com/justinas/alice"
 )
@@ -61,8 +62,12 @@ func main() {
     log.Println(err)
     return
   }
+	// TODO sync the session with oauth2-proxy
   storedSessionOptions := middleware.StoredSessionLoaderOptions{
     SessionStore: sessionStore,
+    RefreshPeriod: time.Duration(0),
+    // RefreshSessionIfNeeded: ,
+    // ValidateSessionState: ,
   }
   chain := alice.New()
   chain = chain.Append(Logging, middleware.NewScope(), middleware.NewStoredSessionLoader(&storedSessionOptions))

@@ -352,6 +352,7 @@ https://pkg.go.dev/github.com/oauth2-proxy/oauth2-proxy@v1.1.2-0.20200904143047-
 
     "github.com/oauth2-proxy/oauth2-proxy/pkg/middleware"
     "github.com/oauth2-proxy/oauth2-proxy/pkg/sessions"
+    "github.com/oauth2-proxy/oauth2-proxy/providers"
     oauth2options "github.com/oauth2-proxy/oauth2-proxy/pkg/apis/options"
     "github.com/justinas/alice"
   )
@@ -402,8 +403,12 @@ https://pkg.go.dev/github.com/oauth2-proxy/oauth2-proxy@v1.1.2-0.20200904143047-
       log.Println(err)
       return
     }
+	  // TODO sync the session with oauth2-proxy
     storedSessionOptions := middleware.StoredSessionLoaderOptions{
       SessionStore: sessionStore,
+      RefreshPeriod: time.Duration(0),
+      // RefreshSessionIfNeeded: ,
+      // ValidateSessionState: ,
     }
     chain := alice.New()
     chain = chain.Append(Logging, middleware.NewScope(), middleware.NewStoredSessionLoader(&storedSessionOptions))
