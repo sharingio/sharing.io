@@ -1,0 +1,17 @@
+
+
+
+# Create a Kubernetes Service resource into Humacs, to route traffic to the program above
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: sharingio-get-username
+spec:
+  ports:
+  - name: http
+    port: 8085
+    protocol: TCP
+    targetPort: 8085
+  selector:
+    app.kubernetes.io/instance: me-humacs

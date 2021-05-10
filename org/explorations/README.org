@@ -3,3 +3,6 @@
 #+begin_quote
   Learning and development
 #+end_quote
+
+* Index
+- [[./oauth2/oauth2-proxy.org][oauth2]]
