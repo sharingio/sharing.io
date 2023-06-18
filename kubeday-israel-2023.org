@@ -436,11 +436,36 @@ curl -s https://multiplex.ii.nz/token | jq .
   "socketId": "16aea71739f68090"
 }
 #+end_example
-
+** Setup
+Having trouble configuring org-ai output folder
+#+begin_src shell
+mkdir -p ~/org && ln -s $(pwd)/org-ai-images ~/org
+#+end_src
+** Rname fix
+#+name: fixit
+#+begin_src elisp
+  (intertactive "p")
+(while (re-search-forward "/home/ii/org/" nil t)
+  (replace-match "./"))
+#+end_src
+#+begin_src elisp :results silent
+(defun fixorgai ()
+  "Fix org-ai export issue"
+  (interactive "p")
+(while (re-search-forward "/home/ii/org/" nil t)
+  (replace-match "./"))
+    )
+#+end_src
+** Export correctly
+#+name: fixit-directly
+#+begin_src elisp
+(setq org-ai-image-directory: /home/ii/sharing.io/org-ai-images)
+#+end_src
 ** Local vars
 
 # Local Variables:
 # no-org-re-reveal-title-slide-notes: NOTES\.txt
 # org-re-reveal-defaulttiming: 20
 # org-re-reveal-totaltime: 600
+# org-ai-image-directory: /home/ii/sharing.io/org-ai-images/
 # End:
