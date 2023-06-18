@@ -6,6 +6,16 @@
 #+REVEAL_TALK_URL: https://sharing.io
 #+KEYWORDS: ii, presentation, HTML, slide show
 * foo :noexport:
+** Export Fix
+#+name: fixit
+#+begin_src elisp
+(while (re-search-forward "/home/ii/org/" nil t) (replace-match "./"))
+#+end_src
+* slide 1
+#+begin_ai :image :size 256x256
+a red ball
+#+end_ai
+[[file:./org-ai-images/20230618_256x256_image.png]]
 * Haere Mai Stewards
   :PROPERTIES:
   :reveal_extra_attr: data-autoslide="4000" class="align-left"
@@ -459,7 +469,7 @@ mkdir -p ~/org && ln -s $(pwd)/org-ai-images ~/org
 ** Export correctly
 #+name: fixit-directly
 #+begin_src elisp
-(setq org-ai-image-directory: /home/ii/sharing.io/org-ai-images)
+(setq org-ai-image-directory "/home/ii/sharing.io/org-ai-images")
 #+end_src
 ** Local vars
 
