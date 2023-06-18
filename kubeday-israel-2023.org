@@ -448,7 +448,7 @@ curl -s https://multiplex.ii.nz/token | jq .
 #+end_example
 ** Setup
 Having trouble configuring org-ai output folder
-#+begin_src shell
+#+begin_src shell :results silent
 mkdir -p ~/org && ln -s $(pwd)/org-ai-images ~/org
 #+end_src
 ** Rname fix
