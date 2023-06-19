@@ -11,6 +11,8 @@
 #+begin_src elisp
 (while (re-search-forward "/home/ii/org/" nil t) (replace-match "./"))
 #+end_src
+* Friends I made along the way
+- David Tacheny <dtach@oketo.com>
 * slide 1
 #+begin_ai :image :size 256x256
 a red ball
