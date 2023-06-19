@@ -29,7 +29,7 @@ file:~/.ssh/config
 #+begin_src tmux :session ":create"
 ssh coder.kubedaytlv
 #+end_src
-* sites
+* site
 ** emacs
 #+begin_src shell :wrap "html" :exports results
 SPACE_USER=hh
@@ -64,4 +64,28 @@ echo "https://code-server--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
 #+RESULTS:
 #+begin_html
 https://code-server--ii--kubedaytlv--hh.sharing.io/
+#+end_html
+* apisnoop site
+** emacs
+#+begin_src shell :wrap "html" :exports results
+SPACE_USER=hh
+SPACE_NAME=ticket-writing145
+echo "https://emacs--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
+#+end_src
+
+#+RESULTS:
+#+begin_html
+https://emacs--ii--ticket-writing145--hh.sharing.io/
+#+end_html
+
+** web
+#+begin_src shell :wrap "html" :exports results
+SPACE_USER=hh
+SPACE_NAME=ticket-writing145
+echo "https://tmux--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
+#+end_src
+
+#+RESULTS:
+#+begin_html
+https://tmux--ii--ticket-writing145--hh.sharing.io/
 #+end_html
