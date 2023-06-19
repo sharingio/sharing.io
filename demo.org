@@ -1,0 +1,67 @@
+#+TITLE: Fun with my friends
+* install coder (and call rename it space)
+#+begin_src tmux :session ":install"
+curl -fsSL https://coder.com/install.sh | sh
+sudo ln -s `which coder` /usr/local/bin/space
+#+end_src
+* space login
+#+begin_src tmux :session ":install"
+space login https://space.sharing.io
+#+end_src
+* space template list
+#+begin_src tmux :session ":login"
+space template list
+#+end_src
+* space create
+#+begin_src tmux :session ":create"
+space create --template=iipod kubedaytlv
+#+end_src
+* space list
+#+begin_src tmux :session ":create"
+space list
+#+end_src
+* space config-ssh
+#+begin_src tmux :session ":create"
+space config-ssh
+#+end_src
+file:~/.ssh/config
+* space ssh
+#+begin_src tmux :session ":create"
+ssh coder.kubedaytlv
+#+end_src
+* sites
+** emacs
+#+begin_src shell :wrap "html" :exports results
+SPACE_USER=hh
+SPACE_NAME=kubedaytlv
+echo "https://emacs--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
+#+end_src
+
+#+RESULTS:
+#+begin_html
+https://emacs--ii--kubedaytlv--hh.sharing.io/
+#+end_html
+
+** web
+#+begin_src shell :wrap "html" :exports results
+SPACE_USER=hh
+SPACE_NAME=kubedaytlv
+echo "https://web--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
+#+end_src
+
+#+RESULTS:
+#+begin_html
+https://web--ii--kubedaytlv--hh.sharing.io/
+#+end_html
+
+** code
+#+begin_src shell :wrap "html" :exports results
+SPACE_USER=hh
+SPACE_NAME=kubedaytlv
+echo "https://code-server--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
+#+end_src
+
+#+RESULTS:
+#+begin_html
+https://code-server--ii--kubedaytlv--hh.sharing.io/
+#+end_html
