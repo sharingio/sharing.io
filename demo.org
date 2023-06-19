@@ -89,3 +89,15 @@ echo "https://tmux--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
 #+begin_html
 https://tmux--ii--ticket-writing145--hh.sharing.io/
 #+end_html
+
+** vnc
+#+begin_src shell :wrap "html" :exports results
+SPACE_USER=hh
+SPACE_NAME=ticket-writing145
+echo "https://vnc--ii--$SPACE_NAME--$SPACE_USER.sharing.io/"
+#+end_src
+
+#+RESULTS:
+#+begin_html
+https://vnc--ii--ticket-writing145--hh.sharing.io/
+#+end_html
